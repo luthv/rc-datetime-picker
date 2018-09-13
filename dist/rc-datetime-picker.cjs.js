@@ -856,7 +856,9 @@ var Time = function (_Component) {
     key: 'render',
     value: function render() {
       var _moment = this.state.moment;
-      var style = this.props.style;
+      var _props = this.props,
+          style = _props.style,
+          hideMinutes = _props.hideMinutes;
 
       var step = this.props.step || 1;
 
@@ -899,7 +901,7 @@ var Time = function (_Component) {
               { className: 'slider-text' },
               'Minutes:'
             ),
-            React__default.createElement(ReactSlider, { min: 0, max: 59, value: _moment.minute(), onChange: this.handleChange.bind(this, 'minutes'), step: step, withBars: true })
+            !hideMinutes && React__default.createElement(ReactSlider, { min: 0, max: 59, value: _moment.minute(), onChange: this.handleChange.bind(this, 'minutes'), step: step, withBars: true })
           )
         )
       );
@@ -929,10 +931,10 @@ var _initialiseProps$1 = function _initialiseProps() {
   };
 
   this.handleChange = function (type, value) {
-    var _props = _this2.props,
-        onChange = _props.onChange,
-        range = _props.range,
-        rangeAt = _props.rangeAt;
+    var _props2 = _this2.props,
+        onChange = _props2.onChange,
+        range = _props2.range,
+        rangeAt = _props2.rangeAt;
 
     var _moment = _this2.state.moment.clone();
     var selected = _this2.props.moment;
