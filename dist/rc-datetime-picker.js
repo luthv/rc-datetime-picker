@@ -856,6 +856,7 @@ var Time = function (_Component) {
       var _moment = this.state.moment;
       var style = this.props.style;
 
+      var step = this.props.step || 1;
 
       return React__default.createElement(
         'div',
@@ -896,7 +897,7 @@ var Time = function (_Component) {
               { className: 'slider-text' },
               'Minutes:'
             ),
-            React__default.createElement(ReactSlider, { min: 0, max: 59, value: _moment.minute(), onChange: this.handleChange.bind(this, 'minutes'), withBars: true })
+            React__default.createElement(ReactSlider, { min: 0, max: 59, value: _moment.minute(), onChange: this.handleChange.bind(this, 'minutes'), step: step, withBars: true })
           )
         )
       );
